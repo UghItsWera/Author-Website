@@ -1,0 +1,77 @@
+# =========================
+# React / Node
+# =========================
+
+client/node_modules/
+client/dist/
+client/.vite/
+
+# npm logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# =========================
+# ASP.NET Core
+# =========================
+
+server/bin/
+server/obj/
+
+# User-specific Visual Studio files
+server/.vs/
+
+# User-specific project files
+*.user
+*.rsuser
+*.suo
+
+
+# =========================
+# Environment / Secrets
+# =========================
+
+.env
+.env.*
+!.env.example
+
+# ASP.NET local settings / secrets
+appsettings.Development.json
+
+
+# =========================
+# IDE
+# =========================
+
+.vscode/
+.idea/
+
+# Keep VS Code recommended extensions/settings if we add them later
+!.vscode/extensions.json
+!.vscode/settings.json
+
+
+# =========================
+# OS
+# =========================
+
+.DS_Store
+Thumbs.db
+
+
+# =========================
+# Coverage / Test Results
+# =========================
+
+coverage/
+TestResults/
+
+
+# =========================
+# Generated files
+# =========================
+
+*.log
+*.tmp
