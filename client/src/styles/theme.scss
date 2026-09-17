@@ -1,0 +1,49 @@
+:root {
+    // Enchanted — Light Theme
+  
+    --color-primary: #cb96ba;
+    --color-secondary: #b0b3d6;
+  
+    --color-background: #e0e4e7;
+    --color-surface: #f6f3ee;
+  
+    --color-accent: #d0ddc4;
+    --color-accent-dark: #77a39a;
+  
+    --color-green: #9bbcac;
+  
+    --color-text: #2f2a2d;
+    --color-text-muted: #6f6a6d;
+  
+    --color-border: rgba(47, 42, 45, 0.15);
+  
+    --shadow-soft: 0 10px 30px rgba(47, 42, 45, 0.08);
+    --shadow-medium: 0 15px 45px rgba(47, 42, 45, 0.12);
+  
+    --transition-fast: 180ms ease;
+    --transition-medium: 350ms ease;
+    --transition-slow: 600ms ease;
+  }
+  
+  [data-theme="dark"] {
+    // Bewitched — Dark Theme
+  
+    --color-primary: #5b3a4a;
+    --color-secondary: #6a7f61;
+  
+    --color-background: #3a2a35;
+    --color-surface: #1d2b1e;
+  
+    --color-accent: #2f4a2e;
+    --color-accent-dark: #7a0f1f;
+  
+    --color-green: #6a7f61;
+  
+    --color-text: #eee9e5;
+    --color-text-muted: #bcb4b0;
+  
+    --color-border: rgba(238, 233, 229, 0.15);
+  
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.2);
+    --shadow-medium: 0 15px 45px rgba(0, 0, 0, 0.35);
+  }
