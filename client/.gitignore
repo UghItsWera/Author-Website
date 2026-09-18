@@ -1,24 +1,103 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# ==========================================
 
-node_modules
-dist
-dist-ssr
-*.local
+# React / Vite
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
+# ==========================================
+
+client/node_modules/
+client/dist/
+client/.vite/
+
+# ==========================================
+
+# Environment / Secrets
+
+# ==========================================
+
+.env
+.env.*
+!.env.example
+
+# ASP.NET local configuration
+
+server/appsettings.Development.json
+
+# ==========================================
+
+# ASP.NET / .NET
+
+# ==========================================
+
+server/bin/
+server/obj/
+
+# User-specific .NET files
+
+*.user
 *.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+*.userosscache
+*.sln.docstates
+
+# ==========================================
+
+# Visual Studio / Rider / VS Code
+
+# ==========================================
+
+.vs/
+.vscode/
+.idea/
+
+# ==========================================
+
+# Build / Test Output
+
+# ==========================================
+
+TestResults/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]uild/
+[Bb]uilds/
+
+# ==========================================
+
+# Logs
+
+# ==========================================
+
+*.log
+
+# ==========================================
+
+# OS Files
+
+# ==========================================
+
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ==========================================
+
+# Temporary / Backup Files
+
+# ==========================================
+
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# ==========================================
+
+# Coverage
+
+# ==========================================
+
+coverage/
+*.coverage
+*.coveragexml
