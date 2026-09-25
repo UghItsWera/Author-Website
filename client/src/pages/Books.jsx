@@ -1,38 +1,35 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import BookCard from "../components/BookCard";
 import "./Books.scss";
 
-const books = [
-  {
-    id: 1,
-    title: "The Emerald Heretic",
-    slug: "the-emerald-heretic",
-    series: "The Emerald Series",
-    bookNumber: 1,
-    status: "Coming Soon",
-    coverImage: null
-  },
-  {
-    id: 2,
-    title: "Deadly Desire",
-    slug: "deadly-desire",
-    series: "The Emerald Series",
-    bookNumber: 2,
-    status: "In Progress",
-    coverImage: null
-  },
-  {
-    id: 3,
-    title: "The Carver",
-    slug: "the-carver",
-    series: null,
-    bookNumber: null,
-    status: "Coming Soon",
-    coverImage: null
-  }
-];
-
 function Books() {
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadBooks = async () => {
+      try {
+        const response = await fetch(
+          "http://localhost:5297/api/books"
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to load books.");
+        }
+
+        const data = await response.json();
+        setBooks(data);
+      } catch (error) {
+        console.error("Books loading error:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadBooks();
+  }, []);
+
   return (
     <div className="books-page">
 
@@ -60,20 +57,47 @@ function Books() {
 
       </section>
 
-
       <section className="books-grid-section">
 
-        <div className="books-grid">
+        {loading ? (
+          <motion.div
+            className="books-loading"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <span>✦</span>
+            <p>Turning the pages...</p>
+          </motion.div>
+        ) : books.length === 0 ? (
+          <motion.div
+            className="books-empty"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <span>❦</span>
 
-          {books.map((book, index) => (
-            <BookCard
-              key={book.id}
-              book={book}
-              index={index}
-            />
-          ))}
+            <h2>
+              The shelves are waiting.
+            </h2>
 
-        </div>
+            <p>
+              No books have been added yet, but there are
+              stories waiting to find their way here.
+            </p>
+          </motion.div>
+        ) : (
+          <div className="books-grid">
+
+            {books.map((book, index) => (
+              <BookCard
+                key={book.id}
+                book={book}
+                index={index}
+              />
+            ))}
+
+          </div>
+        )}
 
       </section>
 

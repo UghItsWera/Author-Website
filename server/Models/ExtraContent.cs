@@ -4,7 +4,7 @@ public class ExtraContent
 {
     public int Id { get; set; }
 
-    public int BookId { get; set; }
+    public int? BookId { get; set; }
 
     public Book? Book { get; set; }
 
@@ -12,9 +12,11 @@ public class ExtraContent
 
     public string Slug { get; set; } = string.Empty;
 
-    public string Type { get; set; } = "Bonus Chapter";
+    public string Type { get; set; } = "Random Story";
 
-    public string? Description { get; set; }
+    public string? Tags { get; set; }
+
+    public string? Summary { get; set; }
 
     public string? Content { get; set; }
 

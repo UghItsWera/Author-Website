@@ -37,74 +37,44 @@ function AdminBooks() {
 
   const isEditing = editingBookId !== null;
 
-  const fetchBooks = async () => {
-    try {
-      setError("");
-
-      const response = await fetch(
-        "http://localhost:5297/api/books"
-      );
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(
-          data.message || "Unable to load books."
-        );
-      }
-
-      setBooks(data);
-    } catch (fetchError) {
-      setError(fetchError.message);
-    }
-  };
-
-  const fetchSeries = async () => {
-    try {
-      const response = await fetch(
-        "http://localhost:5297/api/series"
-      );
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(
-          data.message || "Unable to load series."
-        );
-      }
-
-      setSeries(data);
-    } catch (fetchError) {
-      setError(fetchError.message);
-    }
-  };
-
   useEffect(() => {
     const loadData = async () => {
       setIsLoading(true);
+      setError("");
 
-      await Promise.all([
-        fetchBooks(),
-        fetchSeries(),
-      ]);
+      try {
+        const [booksResponse, seriesResponse] =
+          await Promise.all([
+            fetch("http://localhost:5297/api/books"),
+            fetch("http://localhost:5297/api/series"),
+          ]);
 
-      setIsLoading(false);
+        const booksData = await booksResponse.json();
+        const seriesData = await seriesResponse.json();
+
+        if (!booksResponse.ok) {
+          throw new Error(
+            booksData.message || "Unable to load books."
+          );
+        }
+
+        if (!seriesResponse.ok) {
+          throw new Error(
+            seriesData.message || "Unable to load series."
+          );
+        }
+
+        setBooks(booksData);
+        setSeries(seriesData);
+      } catch (fetchError) {
+        setError(fetchError.message);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
     loadData();
   }, []);
-
-  const getSeriesName = (seriesId) => {
-    if (!seriesId) {
-      return "Standalone";
-    }
-
-    const matchingSeries = series.find(
-      (item) => item.id === seriesId
-    );
-
-    return matchingSeries?.name || "Standalone";
-  };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -138,9 +108,11 @@ function AdminBooks() {
       bookNumber: book.bookNumber
         ? String(book.bookNumber)
         : "",
-      seriesId: book.seriesId
-        ? String(book.seriesId)
-        : "",
+      seriesId:
+        book.seriesId !== null &&
+        book.seriesId !== undefined
+          ? String(book.seriesId)
+          : "",
       purchaseUrl: book.purchaseUrl || "",
     });
 
@@ -205,7 +177,7 @@ function AdminBooks() {
           const data = await response.json();
           message = data.message || message;
         } catch {
-          // The server returned no JSON response.
+          // No JSON response.
         }
 
         throw new Error(message);
@@ -505,7 +477,7 @@ function AdminBooks() {
 
                   <div className="admin-book-card__footer">
                     <span>
-                      {getSeriesName(book.seriesId)}
+                      {book.seriesName || "Standalone"}
                     </span>
 
                     <div className="admin-book-card__actions">
@@ -711,7 +683,7 @@ function AdminBooks() {
                       {series.map((item) => (
                         <option
                           key={item.id}
-                          value={item.id}
+                          value={String(item.id)}
                         >
                           {item.name}
                         </option>

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./BookCard.scss";
 
 function BookCard({ book, index = 0 }) {
+  const seriesName = book.seriesName || book.series;
+
   return (
     <motion.article
       className="book-card"
@@ -14,8 +16,10 @@ function BookCard({ book, index = 0 }) {
         delay: index * 0.12
       }}
     >
-      <Link to={`/books/${book.slug}`} className="book-card-link">
-
+      <Link
+        to={`/books/${book.slug}`}
+        className="book-card-link"
+      >
         <motion.div
           className="book-card-cover"
           whileHover={{
@@ -34,12 +38,18 @@ function BookCard({ book, index = 0 }) {
             />
           ) : (
             <div className="book-card-placeholder">
-              <span>{book.series || "A Novel"}</span>
+              <span>
+                {seriesName || "A Novel"}
+              </span>
 
-              <strong>{book.title}</strong>
+              <strong>
+                {book.title}
+              </strong>
 
               {book.bookNumber && (
-                <small>Book {book.bookNumber}</small>
+                <small>
+                  Book {book.bookNumber}
+                </small>
               )}
             </div>
           )}
@@ -47,20 +57,27 @@ function BookCard({ book, index = 0 }) {
 
         <div className="book-card-info">
 
-          {book.series && (
+          {seriesName && (
             <p className="book-card-series">
-              {book.series}
+              {seriesName}
             </p>
           )}
 
-          <h2>{book.title}</h2>
+          <h2>
+            {book.title}
+          </h2>
+
+          {book.genre && (
+            <p className="book-card-genre">
+              {book.genre}
+            </p>
+          )}
 
           <p className="book-card-status">
-            {book.status}
+            {book.status || "Coming Soon"}
           </p>
 
         </div>
-
       </Link>
     </motion.article>
   );

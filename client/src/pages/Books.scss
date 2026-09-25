@@ -1,75 +1,211 @@
 .books-page {
-    min-height: 100vh;
+  min-height: 100vh;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.books-header {
+  width: min(900px, 90%);
+
+  margin: 0 auto;
+
+  padding: 9rem 0 6rem;
+
+  text-align: center;
+}
+
+.books-header h1 {
+  margin-bottom: 1.5rem;
+
+  font-size: clamp(4rem, 8vw, 7rem);
+
+  line-height: 0.9;
+}
+
+.books-header h1 em {
+  color: var(--color-primary);
+
+  font-weight: 400;
+}
+
+.books-header > div > p:last-child {
+  width: min(600px, 100%);
+
+  margin: 0 auto;
+
+  font-size: 1rem;
+
+  line-height: 1.9;
+
+  color: var(--color-text-muted);
+}
+
+/* =========================
+   BOOK GRID
+========================= */
+
+.books-grid-section {
+  width: min(1200px, 90%);
+
+  margin: 0 auto;
+
+  padding-bottom: 9rem;
+}
+
+.books-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+/* =========================
+   LOADING STATE
+========================= */
+
+.books-loading {
+  min-height: 320px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+
+  color: var(--color-text-muted);
+
+  text-align: center;
+}
+
+.books-loading span {
+  display: block;
+
+  color: var(--color-primary);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 2rem;
+
+  animation: booksPulse 1.8s ease-in-out infinite;
+}
+
+.books-loading p {
+  margin: 0;
+
+  font-size: 0.7rem;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+@keyframes booksPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.9) rotate(0deg);
   }
-  
-  .books-header {
-    width: min(900px, 90%);
-  
-    margin: 0 auto;
-  
-    padding: 9rem 0 6rem;
-  
-    text-align: center;
+
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(8deg);
   }
-  
-  .books-header h1 {
-    margin-bottom: 1.5rem;
-  
-    font-size: clamp(4rem, 8vw, 7rem);
-  
-    line-height: 0.9;
-  }
-  
-  .books-header h1 em {
-    color: var(--color-primary);
-  
-    font-weight: 400;
-  }
-  
-  .books-header > div > p:last-child {
-    width: min(600px, 100%);
-  
-    margin: 0 auto;
-  
-    font-size: 1rem;
-  
-    line-height: 1.9;
-  
-    color: var(--color-text-muted);
-  }
-  
-  .books-grid-section {
-    width: min(1200px, 90%);
-  
-    margin: 0 auto;
-  
-    padding-bottom: 9rem;
-  }
-  
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.books-empty {
+  width: min(600px, 100%);
+
+  margin: 2rem auto 0;
+
+  padding: 5rem 2rem;
+
+  text-align: center;
+
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.books-empty > span {
+  display: block;
+
+  margin-bottom: 1.5rem;
+
+  color: var(--color-primary);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 2rem;
+}
+
+.books-empty h2 {
+  margin: 0 0 1rem;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 2.5rem;
+
+  font-weight: 500;
+
+  color: var(--color-text);
+}
+
+.books-empty p {
+  width: min(440px, 100%);
+
+  margin: 0 auto;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.9rem;
+
+  line-height: 1.8;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
   .books-grid {
-    display: grid;
-  
-    grid-template-columns: repeat(3, 1fr);
-  
-    gap: clamp(2rem, 5vw, 5rem);
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  @media (max-width: 850px) {
-    .books-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+}
+
+@media (max-width: 550px) {
+  .books-header {
+    padding-top: 6rem;
+    padding-bottom: 4rem;
   }
-  
-  @media (max-width: 550px) {
-    .books-header {
-      padding-top: 6rem;
-    }
-  
-    .books-grid {
-      grid-template-columns: 1fr;
-  
-      width: min(330px, 100%);
-  
-      margin: 0 auto;
-    }
+
+  .books-header h1 {
+    font-size: clamp(3.5rem, 16vw, 5rem);
   }
+
+  .books-grid {
+    grid-template-columns: 1fr;
+
+    width: min(330px, 100%);
+
+    margin: 0 auto;
+  }
+
+  .books-grid-section {
+    padding-bottom: 6rem;
+  }
+
+  .books-empty {
+    padding: 4rem 1.5rem;
+  }
+
+  .books-empty h2 {
+    font-size: 2.1rem;
+  }
+}

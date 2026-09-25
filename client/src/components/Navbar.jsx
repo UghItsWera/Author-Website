@@ -44,8 +44,8 @@ function Navbar() {
             Series
           </Link>
 
-          <Link to="/stories" onClick={closeMenu}>
-            Stories
+          <Link to="/content" onClick={closeMenu}>
+            Content
           </Link>
 
           <Link to="/about" onClick={closeMenu}>
