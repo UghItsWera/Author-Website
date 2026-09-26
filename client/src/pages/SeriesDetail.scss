@@ -1,0 +1,533 @@
+.series-detail {
+    min-height: 100vh;
+  }
+  
+  
+  /* --------------------------------
+     HERO
+  -------------------------------- */
+  
+  .series-detail__hero {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+    padding: 9rem 0 7rem;
+  
+    display: grid;
+    grid-template-columns: minmax(280px, 430px) 1fr;
+    align-items: center;
+    gap: 6rem;
+  }
+  
+  
+  /* --------------------------------
+     COVER
+  -------------------------------- */
+  
+  .series-detail__cover {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .series-detail__cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .series-detail__placeholder {
+    width: 100%;
+    height: 100%;
+    padding: 3rem;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    text-align: center;
+  
+    background:
+      linear-gradient(
+        145deg,
+        var(--color-surface),
+        var(--color-background)
+      );
+  }
+  
+  .series-detail__placeholder span {
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+  
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  
+  .series-detail__placeholder strong {
+    max-width: 90%;
+  
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 0.9;
+    font-weight: 500;
+  }
+  
+  
+  /* --------------------------------
+     INTRO
+  -------------------------------- */
+  
+  .series-detail__intro {
+    position: relative;
+  }
+  
+  .series-detail__intro h1 {
+    margin: 1rem 0 1.5rem;
+  
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(4rem, 7vw, 7rem);
+    line-height: 0.85;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+  }
+  
+  .series-detail__description {
+    width: min(600px, 100%);
+    margin: 0 0 2rem;
+  
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.9;
+  }
+  
+  .series-detail__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+  
+    margin-bottom: 2rem;
+  
+    color: var(--color-text-muted);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  
+  .series-detail__meta span + span::before {
+    content: "·";
+    margin-right: 2rem;
+    color: var(--color-primary);
+  }
+  
+  
+  /* --------------------------------
+     BOOKS SECTION
+  -------------------------------- */
+  
+  .series-detail__books {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+    padding-bottom: 9rem;
+  }
+  
+  .series-detail__heading {
+    margin-bottom: 3rem;
+  }
+  
+  .series-detail__heading h2 {
+    margin: 0.8rem 0 0;
+  
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 0.9;
+    font-weight: 500;
+  }
+  
+  .series-detail__heading h2 em {
+    color: var(--color-primary);
+    font-weight: 400;
+  }
+  
+  
+  /* --------------------------------
+     BOOK LIST
+  -------------------------------- */
+  
+  .series-detail__book-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .series-detail__book {
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+  
+    transition:
+      border-color var(--transition-medium),
+      background-color 500ms ease;
+  }
+  
+  .series-detail__book:hover {
+    border-color: var(--color-primary);
+  }
+  
+  .series-detail__book-link {
+    display: grid;
+    grid-template-columns: 70px 180px 1fr;
+    align-items: center;
+    gap: 2rem;
+  
+    padding: 1.5rem;
+  
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  
+  /* --------------------------------
+     NUMBER
+  -------------------------------- */
+  
+  .series-detail__book-number {
+    color: var(--color-primary);
+  
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2.5rem;
+    line-height: 1;
+    text-align: center;
+  }
+  
+  
+  /* --------------------------------
+     BOOK COVER
+  -------------------------------- */
+  
+  .series-detail__book-cover {
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+  }
+  
+  .series-detail__book-cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  
+    transition: transform 0.7s ease;
+  }
+  
+  .series-detail__book:hover
+  .series-detail__book-cover img {
+    transform: scale(1.04);
+  }
+  
+  .series-detail__book-placeholder {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    text-align: center;
+  
+    background:
+      linear-gradient(
+        145deg,
+        var(--color-background),
+        var(--color-surface)
+      );
+  }
+  
+  .series-detail__book-placeholder span {
+    margin-bottom: 0.5rem;
+  
+    color: var(--color-primary);
+  
+    font-size: 0.5rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  
+  .series-detail__book-placeholder strong {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.5rem;
+    line-height: 0.95;
+    font-weight: 500;
+  }
+  
+  
+  /* --------------------------------
+     BOOK INFO
+  -------------------------------- */
+  
+  .series-detail__book-info {
+    padding: 1rem 1rem 1rem 0;
+  }
+  
+  .series-detail__book-label {
+    margin: 0 0 0.6rem;
+  
+    color: var(--color-accent-dark);
+  
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  
+  .series-detail__book-info h3 {
+    margin: 0 0 0.6rem;
+  
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2.8rem;
+    line-height: 0.95;
+    font-weight: 500;
+  }
+  
+  .series-detail__book-genre {
+    margin: 0 0 1rem;
+  
+    color: var(--color-text-muted);
+  
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  
+  .series-detail__book-description {
+    width: min(600px, 100%);
+    margin: 0 0 1.5rem;
+  
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+  
+  
+  /* --------------------------------
+     EMPTY
+  -------------------------------- */
+  
+  .series-detail__empty {
+    min-height: 300px;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    text-align: center;
+  }
+  
+  .series-detail__empty > span {
+    margin-bottom: 1rem;
+  
+    color: var(--color-primary);
+  
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2rem;
+  }
+  
+  .series-detail__empty h3 {
+    margin: 0 0 1rem;
+  
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2.8rem;
+    font-weight: 500;
+  }
+  
+  .series-detail__empty p {
+    width: min(450px, 100%);
+    margin: 0 0 1.5rem;
+  
+    color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+  
+  
+  /* --------------------------------
+     LOADING
+  -------------------------------- */
+  
+  .series-detail-loading {
+    min-height: 70vh;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    text-align: center;
+  }
+  
+  .series-detail-loading > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .series-detail-loading span {
+    color: var(--color-primary);
+  
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2rem;
+  
+    animation: seriesDetailPulse 1.8s ease-in-out infinite;
+  }
+  
+  .series-detail-loading p {
+    margin: 0;
+  
+    color: var(--color-text-muted);
+  
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  
+  @keyframes seriesDetailPulse {
+    0%,
+    100% {
+      opacity: 0.35;
+      transform: scale(0.9) rotate(0deg);
+    }
+  
+    50% {
+      opacity: 1;
+      transform: scale(1) rotate(8deg);
+    }
+  }
+  
+  
+  /* --------------------------------
+     NOT FOUND
+  -------------------------------- */
+  
+  .series-detail-not-found {
+    min-height: 70vh;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    gap: 1.2rem;
+  
+    padding: 3rem;
+  
+    text-align: center;
+  }
+  
+  .series-detail-not-found h1 {
+    margin: 0;
+  
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 0.9;
+  }
+  
+  .series-detail-not-found p:not(.section-eyebrow) {
+    max-width: 500px;
+  
+    margin: 0 0 1rem;
+  
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+  
+  
+  /* --------------------------------
+     RESPONSIVE
+  -------------------------------- */
+  
+  @media (max-width: 850px) {
+    .series-detail__hero {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding-top: 6rem;
+    }
+  
+    .series-detail__cover {
+      width: min(400px, 100%);
+      margin: 0 auto;
+    }
+  
+    .series-detail__intro {
+      text-align: center;
+    }
+  
+    .series-detail__description {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .series-detail__meta {
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .series-detail__hero {
+      width: 88%;
+    }
+  
+    .series-detail__intro h1 {
+      font-size: clamp(3.5rem, 15vw, 5rem);
+    }
+  
+    .series-detail__books {
+      width: 88%;
+      padding-bottom: 6rem;
+    }
+  
+    .series-detail__book-link {
+      grid-template-columns: 45px 110px 1fr;
+      gap: 1rem;
+      padding: 1rem;
+    }
+  
+    .series-detail__book-number {
+      font-size: 1.8rem;
+    }
+  
+    .series-detail__book-info {
+      padding: 0;
+    }
+  
+    .series-detail__book-info h3 {
+      font-size: 2rem;
+    }
+  
+    .series-detail__book-description {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 520px) {
+    .series-detail__book-link {
+      grid-template-columns: 40px 90px 1fr;
+      gap: 0.75rem;
+    }
+  
+    .series-detail__book-info h3 {
+      font-size: 1.6rem;
+    }
+  
+    .series-detail__book-genre {
+      font-size: 0.6rem;
+    }
+  
+    .series-detail__book-label {
+      font-size: 0.5rem;
+    }
+  
+    .series-detail__book-info .text-link {
+      font-size: 0.6rem;
+    }
+  }

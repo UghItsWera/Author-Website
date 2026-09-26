@@ -17,6 +17,8 @@ public class AppDbContext : IdentityDbContext
 
     public DbSet<ExtraContent> ExtraContent => Set<ExtraContent>();
 
+    public DbSet<AboutContent> AboutContent => Set<AboutContent>();
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);

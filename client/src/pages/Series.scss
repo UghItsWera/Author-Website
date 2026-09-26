@@ -1,0 +1,298 @@
+.series-page {
+    min-height: 100vh;
+  }
+  
+  /* --------------------------------
+     HEADER
+  -------------------------------- */
+  
+  .series-header {
+    width: min(850px, 90%);
+    margin: 0 auto;
+    padding: 9rem 0 6rem;
+    text-align: center;
+  }
+  
+  .series-header h1 {
+    margin: 1rem 0 1.5rem;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(4rem, 8vw, 7rem);
+    line-height: 0.9;
+    font-weight: 500;
+  }
+  
+  .series-header h1 em {
+    color: var(--color-primary);
+    font-weight: 400;
+  }
+  
+  .series-header > div > p:last-child {
+    width: min(600px, 100%);
+    margin: 0 auto;
+    color: var(--color-text-muted);
+    line-height: 1.9;
+  }
+  
+  
+  /* --------------------------------
+     GRID
+  -------------------------------- */
+  
+  .series-grid-section {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+    padding-bottom: 9rem;
+  }
+  
+  .series-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 2rem;
+  }
+  
+  
+  /* --------------------------------
+     CARD
+  -------------------------------- */
+  
+  .series-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    transition:
+      border-color var(--transition-medium),
+      background-color 500ms ease;
+  }
+  
+  .series-card:hover {
+    border-color: var(--color-primary);
+  }
+  
+  .series-card__link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  
+  /* --------------------------------
+     COVER
+  -------------------------------- */
+  
+  .series-card__cover {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+  
+  .series-card__cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+  
+  .series-card:hover .series-card__cover img {
+    transform: scale(1.04);
+  }
+  
+  .series-card__placeholder {
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+      linear-gradient(
+        135deg,
+        var(--color-surface),
+        var(--color-background)
+      );
+  }
+  
+  .series-card__placeholder span {
+    margin-bottom: 0.8rem;
+    color: var(--color-primary);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  
+  .series-card__placeholder strong {
+    max-width: 80%;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2.5rem;
+    line-height: 0.95;
+    font-weight: 500;
+  }
+  
+  .series-card__placeholder small {
+    margin-top: 1rem;
+    color: var(--color-text-muted);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  
+  
+  /* --------------------------------
+     CONTENT
+  -------------------------------- */
+  
+  .series-card__content {
+    padding: 2rem;
+  }
+  
+  .series-card__eyebrow {
+    margin: 0 0 0.8rem;
+    color: var(--color-accent-dark);
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  
+  .series-card h2 {
+    margin: 0 0 1rem;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2.8rem;
+    line-height: 0.95;
+    font-weight: 500;
+  }
+  
+  .series-card__description {
+    margin: 0 0 1.5rem;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+  
+  .series-card__link-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-primary);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition:
+      gap var(--transition-fast),
+      color var(--transition-fast);
+  }
+  
+  .series-card:hover .series-card__link-text {
+    gap: 0.8rem;
+    color: var(--color-accent-dark);
+  }
+  
+  
+  /* --------------------------------
+     LOADING
+  -------------------------------- */
+  
+  .series-loading {
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .series-loading span {
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2rem;
+    animation: seriesLoadingPulse 1.8s ease-in-out infinite;
+  }
+  
+  .series-loading p {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  
+  @keyframes seriesLoadingPulse {
+    0%,
+    100% {
+      opacity: 0.35;
+      transform: scale(0.9) rotate(0deg);
+    }
+  
+    50% {
+      opacity: 1;
+      transform: scale(1) rotate(8deg);
+    }
+  }
+  
+  
+  /* --------------------------------
+     EMPTY
+  -------------------------------- */
+  
+  .series-empty {
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .series-empty > span {
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2rem;
+  }
+  
+  .series-empty h2 {
+    margin: 0 0 1rem;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2.8rem;
+    font-weight: 500;
+  }
+  
+  .series-empty p {
+    width: min(450px, 100%);
+    margin: 0 0 1.5rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+  
+  
+  /* --------------------------------
+     RESPONSIVE
+  -------------------------------- */
+  
+  @media (max-width: 700px) {
+    .series-header {
+      padding: 6rem 0 4rem;
+    }
+  
+    .series-header h1 {
+      font-size: clamp(3.5rem, 15vw, 5rem);
+    }
+  
+    .series-grid-section {
+      width: 88%;
+      padding-bottom: 6rem;
+    }
+  
+    .series-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .series-card__content {
+      padding: 1.5rem;
+    }
+  
+    .series-card h2 {
+      font-size: 2.4rem;
+    }
+  }

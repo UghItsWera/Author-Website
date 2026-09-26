@@ -52,9 +52,6 @@ function Navbar() {
             About
           </Link>
 
-          <Link to="/contact" onClick={closeMenu}>
-            Contact
-          </Link>
         </nav>
 
         <div className="navbar-actions">

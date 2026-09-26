@@ -64,6 +64,16 @@ function AdminLayout() {
           </p>
 
           <NavLink
+            to="/admin/about"
+            className={({ isActive }) =>
+              `admin-nav__link ${isActive ? "active" : ""}`
+            }
+          >
+            <span>❦</span>
+            About
+          </NavLink>
+
+          <NavLink
             to="/"
             className="admin-nav__link"
           >

@@ -6,6 +6,9 @@ import Books from "./pages/Books";
 import BookDetails from "./pages/BookDetails";
 import Content from "./pages/Content";
 import ContentDetails from "./pages/ContentDetails";
+import Series from "./pages/Series";
+import SeriesDetail from "./pages/SeriesDetail";
+import About from "./pages/About";
 
 import AdminLayout from "./admin/AdminLayout";
 import AdminDashboard from "./admin/AdminDashboard";
@@ -14,7 +17,7 @@ import ProtectedRoute from "./auth/ProtectedRoute";
 import AdminBooks from "./admin/AdminBooks";
 import AdminSeries from "./admin/AdminSeries";
 import AdminContent from "./admin/AdminContent";
-// import AdminAbout from "./admin/AdminAbout";
+import AdminAbout from "./admin/AdminAbout";
 
 function App() {
   return (
@@ -28,7 +31,10 @@ function App() {
           <Route path="/books/:slug" element={<BookDetails />} />
           <Route path="/content" element={<Content />} />
           <Route path="/content/:slug" element={<ContentDetails />} />
-          </Route>
+          <Route path="/series" element={<Series />} />
+          <Route path="/series/:slug" element={<SeriesDetail />} />
+          <Route path="/about" element={<About />} />
+        </Route>
 
         {/* Admin login */}
         <Route
@@ -62,10 +68,10 @@ function App() {
               element={<AdminContent />}
             />
 
-            {/* <Route
+            <Route
               path="about"
               element={<AdminAbout />}
-            /> */}
+            />
           </Route>
         </Route>
 

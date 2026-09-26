@@ -16,9 +16,8 @@ function Footer() {
         <div className="footer-links">
           <Link to="/books">Books</Link>
           <Link to="/series">Series</Link>
-          <Link to="/stories">Stories</Link>
+          <Link to="/content">Content</Link>
           <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
         </div>
 
         <div className="footer-bottom">
